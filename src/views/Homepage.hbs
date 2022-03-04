@@ -1,0 +1,39 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <title>Homepage</title>
+  </head>
+  <body>
+    <div style="border: 2px solid black; width:550px; padding:10px">
+      <h1 style="font-size: 2.4rem; margin:15px 0">Assignments</h1>
+      <table>
+        <thead>
+          <tr style="font-size:1.4rem">
+            <th>Assignments</th>
+            <th>Score</th>
+            <th>Total</th>
+            <th>Completed</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        {{#each assignments}}
+          <tbody>
+            <tr style="font-size: 1.7rem;">
+              <td>{{Assignment}}</td>
+              <td>{{Score}}</td>
+              <td>{{Total}}</td>
+              <td>{{Completed}}</td>
+              {{! <td>&#10004;</td> }}
+              <td><a href="/delete">Delete</a>{{delete}}</td>
+            </tr>
+          </tbody>
+        {{/each}}
+      </table>
+      <h2>Overall Average: </h2>
+      <a class="addAssignment" href="/addAssignment">Add an Assignment</a>
+    </div>
+  </body>
+</html>

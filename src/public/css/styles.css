@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Hubballi&family=Indie+Flower&display=swap");
+
+body {
+  font-family: "Hubballi", cursive;
+}
+
+.assignmentDetails {
+  margin: 10px;
+}
+
+tbody tr:nth-child(odd) td {
+  background-color: #f1f4f8;
+}
+
+thead th {
+  padding-right: 10px;
+}
+
+tbody td {
+  padding: 7px;
+}
+
+.addAssignment {
+  font-size: 1.5rem;
+}

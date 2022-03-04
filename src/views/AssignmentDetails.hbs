@@ -1,0 +1,37 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <title>Assignment Details</title>
+  </head>
+  <body>
+    <div class="assignmentDetails">
+      <h1>Add an Assignment</h1>
+      <form method="POST" action="/submit">
+      <label style="font-size:1.5rem">Assignment Name</label>
+          <input style="margin: 10px 0;" type="text" name="assignment" />
+      <br>
+      <label style="font-size:1.5rem">Your Score</label>
+          <input style="margin: 10px 0;" type="text" name="score" />
+      
+      <br>
+      <label style="font-size:1.5rem">Total Possible Score</label>
+          <input style="margin: 10px 0;" type="text" name="total" />
+      <br>
+      <input style="margin: 10px 0;" type="checkbox"  name="complete" />
+      <label style="font-size:1.5rem">Have you completed this assignment?</label>
+      <br>
+      <input
+              style="padding: 5px 8px; font-size:1rem;"
+              type="submit"
+              value="Add"
+            />
+         <a style="font-size:1.5rem"  href="/never-mind">Never Mind</a>
+      </form>
+      </div>
+    </div>
+  </body>
+</html>
