@@ -2,7 +2,7 @@ export interface Grade {
   Assignment: string;
   Score: number;
   Total: number;
-  Completed: boolean;
+  Completed: boolean | string;
 }
 
 export const assignments: Grade[] = [

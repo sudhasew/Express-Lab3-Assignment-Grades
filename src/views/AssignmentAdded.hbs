@@ -3,19 +3,27 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/styles.css" />
     <title>Assignment Added</title>
   </head>
   <body>
-    <h1>Assignment Added</h1>
-    <h2>This assignment was added</h2>
-    Name:{{assignment}}
-    <br />
-    Score:{{score}}
-    <br />
-    Total:{{total}}
-    <br />
-    Completed:{{complete}}
-    <br />
-    <a href="/seeAllAssignments">See all assignments</a>
+    <div class="assignmentAdded">
+      <h1 style="font-size: 3.5rem; font-weight:900; margin-top:0;">Assignment
+        Added</h1>
+      <h2 style="font-size: 2rem; margin-top:0; margin-bottom:10px;">This
+        assignment was added.</h2>
+      <h2 style="font-weight:900;">Name: {{assignment}}</h2>
+      <br />
+      <h2 style="font-weight:900;">Score: {{score}}</h2>
+      <br />
+      <h2 style="font-weight:900;">Total: {{total}}</h2>
+      <br />
+      <h2 style="font-weight:900;">Completed: {{complete}}</h2>
+      <br />
+      <div class="seeAllAssgn">
+        <a class="seeAllAssignments" href="/seeAllAssignments">See all
+          assignments</a>
+      </div>
+    </div>
   </body>
 </html>

@@ -5,7 +5,7 @@ import cors from "cors";
 
 import path from "path";
 import routes from "./routes/assignments";
-import { assignments } from "../grades";
+import { assignments, Grade } from "../grades";
 
 // creates an instance of an Express server
 const app = express();
@@ -41,7 +41,7 @@ app.get("/assignDetails", (req, res) => {
 });
 
 app.get("/never-mind", (req, res) => {
-  res.render("Homepage");
+  res.render("Homepage", { assignments: assignments });
 });
 
 app.get("/addAssignment", (req, res) => {
@@ -49,11 +49,18 @@ app.get("/addAssignment", (req, res) => {
 });
 
 app.post("/submit", (req, res) => {
-  console.log("assignment adding post");
+  console.log("assignment adding post here", req.body.assignment);
   const assignment = req.body.assignment;
   const score = +req.body.score;
   const total = +req.body.total;
-  const complete = req.body.complete ? "yes" : "no";
+  var complete = req.body.complete ? "yes" : "no";
+  assignments.push({
+    Assignment: assignment,
+    Score: score,
+    Total: total,
+    Completed: complete,
+  });
+  console.log("assignments after push", assignments);
   res.render("AssignmentAdded", { assignment, score, total, complete });
 });
 
@@ -61,8 +68,15 @@ app.get("/seeAllAssignments", (req, res) => {
   res.render("HomePage", { assignments: assignments });
 });
 
-app.get("/delete", (req, res) => {
-  res.render("Delete");
+app.get("/delete/:name", (req, res) => {
+  const index = assignments.findIndex(
+    (assgn) => assgn.Assignment === req.params.name
+  );
+  if (index === -1) {
+    return res.status(404).json({ error: "The assignment could not be found" });
+  }
+  assignments.splice(index, 1);
+  res.render("DeleteAssignment", { assignment: req.params.name });
 });
 
 app.listen(port, () => console.log(`Listening on port: ${port}.`));

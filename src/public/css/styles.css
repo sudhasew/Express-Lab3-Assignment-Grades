@@ -1,25 +1,91 @@
 @import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Hubballi&family=Indie+Flower&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Smooch+Sans&display=swap");
 body {
   font-family: "Hubballi", cursive;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.homePage {
+  border: 2px solid black;
+  padding: 10px;
+}
+
+.addAssgn {
+  font-size: 1.8rem;
 }
 
 .assignmentDetails {
   margin: 10px;
 }
 
-tbody tr:nth-child(odd) td {
-  background-color: #f1f4f8;
+table td {
+  padding: 2px 7px;
+}
+
+table {
+  border-spacing: 0;
+  /* font-family: "Smooch Sans", sans-serif; */
+}
+
+tbody:nth-child(even) td {
+  background-color: #e0eaf7;
 }
 
 thead th {
-  padding-right: 10px;
-}
-
-tbody td {
-  padding: 7px;
-}
-
-.addAssignment {
+  padding-right: 25px;
+  padding-bottom: 5px;
+  font-family: "Hubballi", cursive;
   font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.assAssignment {
+  padding: 10px 0;
+  font-size: 1.5rem;
+}
+
+h2 {
+  margin: 0;
+  padding: 7px 0;
+}
+
+.overAll {
+  padding: 15px 0;
+  font-size: 1.8rem;
+}
+
+.seeAllAssignments {
+  font-size: 1.7rem;
+}
+
+.seeAllAssgn {
+  margin: 10px 0;
+}
+
+.assignmentAdded {
+  border: 2px solid black;
+  padding: 10px;
+}
+
+.assignmentDetails {
+  border: 2px solid black;
+  padding: 10px;
+}
+
+.assignmentDetails h1 {
+  font-size: 3rem;
+  margin-top: 0;
+}
+
+.deleteAssgn {
+  border: 2px solid black;
+  padding: 10px;
+}
+
+.assgnDeleted {
+  margin: 10px 0;
+  font-size: 2rem;
 }
