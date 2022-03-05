@@ -28,13 +28,13 @@ app.set("view engine", "hbs");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static("images"));
 
-app.get("/", (req, res) => {
-  res.render("HomePage");
-});
-
 app.get("/Homepage", (req, res) => {
   res.render("HomePage", { assignments: assignments });
 });
+
+// app.get("/Homepage", (req, res) => {
+//   res.render("HomePage", { assignments: assignments });
+// });
 
 app.get("/assignDetails", (req, res) => {
   res.render("AssignmentDetails", { assignments: assignments });
@@ -45,7 +45,7 @@ app.get("/never-mind", (req, res) => {
 });
 
 app.get("/addAssignment", (req, res) => {
-  res.render("AssignmentDetails", { assignments: assignments });
+  res.render("AssignmentDetails");
 });
 
 app.post("/submit", (req, res) => {
@@ -60,11 +60,22 @@ app.post("/submit", (req, res) => {
     Total: total,
     Completed: complete,
   });
-  console.log("assignments after push", assignments);
   res.render("AssignmentAdded", { assignment, score, total, complete });
 });
 
 app.get("/seeAllAssignments", (req, res) => {
+  console.log("see all assignments", assignments);
+  assignments.forEach(function (item) {
+    if (item.Completed === "no") {
+      item.Completed = "";
+    } else if (item.Completed || item.Completed === "yes") {
+      console.log("item name", item.Assignment);
+      console.log("item completed", item.Completed);
+      item.Completed = "✔";
+    } else {
+      item.Completed = "";
+    }
+  });
   res.render("HomePage", { assignments: assignments });
 });
 

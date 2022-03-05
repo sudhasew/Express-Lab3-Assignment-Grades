@@ -16,18 +16,18 @@ export const assignments: Grade[] = [
     Assignment: "Jellyfish Project",
     Score: 15,
     Total: 15,
-    Completed: false,
+    Completed: true,
   },
   {
     Assignment: "Dolphin Quiz",
     Score: 8,
     Total: 10,
-    Completed: false,
+    Completed: true,
   },
   {
     Assignment: "Oceans Unit Test",
     Score: 0,
     Total: 25,
-    Completed: true,
+    Completed: false,
   },
 ];
