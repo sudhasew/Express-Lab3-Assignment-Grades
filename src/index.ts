@@ -28,20 +28,20 @@ app.set("view engine", "hbs");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static("images"));
 
-app.get("/Homepage", (req, res) => {
-  res.render("HomePage", { assignments: assignments });
+app.get("/", (req, res) => {
+  res.render("HomePage", { assignments });
 });
 
-// app.get("/Homepage", (req, res) => {
-//   res.render("HomePage", { assignments: assignments });
-// });
+app.get("/Homepage", (req, res) => {
+  res.render("HomePage", { assignments });
+});
 
 app.get("/assignDetails", (req, res) => {
-  res.render("AssignmentDetails", { assignments: assignments });
+  res.render("AssignmentDetails", { assignments });
 });
 
 app.get("/never-mind", (req, res) => {
-  res.render("Homepage", { assignments: assignments });
+  res.render("Homepage", { assignments });
 });
 
 app.get("/addAssignment", (req, res) => {
@@ -49,39 +49,37 @@ app.get("/addAssignment", (req, res) => {
 });
 
 app.post("/submit", (req, res) => {
-  console.log("assignment adding post here", req.body.assignment);
   const assignment = req.body.assignment;
   const score = +req.body.score;
   const total = +req.body.total;
   var complete = req.body.complete ? "yes" : "no";
   assignments.push({
-    Assignment: assignment,
-    Score: score,
-    Total: total,
-    Completed: complete,
+    name: assignment,
+    score: score,
+    total: total,
+    completed: complete,
   });
   res.render("AssignmentAdded", { assignment, score, total, complete });
 });
 
 app.get("/seeAllAssignments", (req, res) => {
-  console.log("see all assignments", assignments);
+  var averageofAll = seeAllAverage();
+  console.log("average here is", averageofAll);
   assignments.forEach(function (item) {
-    if (item.Completed === "no") {
-      item.Completed = "";
-    } else if (item.Completed || item.Completed === "yes") {
-      console.log("item name", item.Assignment);
-      console.log("item completed", item.Completed);
-      item.Completed = "✔";
+    if (item.completed === "no") {
+      item.completed = "";
+    } else if (item.completed || item.completed === "yes") {
+      item.completed = "✔";
     } else {
-      item.Completed = "";
+      item.completed = "";
     }
   });
-  res.render("HomePage", { assignments: assignments });
+  res.render("HomePage", { assignments, averageofAll });
 });
 
 app.get("/delete/:name", (req, res) => {
   const index = assignments.findIndex(
-    (assgn) => assgn.Assignment === req.params.name
+    (assgn) => assgn.name === req.params.name
   );
   if (index === -1) {
     return res.status(404).json({ error: "The assignment could not be found" });
@@ -91,3 +89,18 @@ app.get("/delete/:name", (req, res) => {
 });
 
 app.listen(port, () => console.log(`Listening on port: ${port}.`));
+
+function seeAllAverage() {
+  var totalAll = 0;
+  var scoreAll = 0;
+  var averageofAll = 0;
+  assignments.forEach(function (item) {
+    if (item.completed || item.completed === "yes") {
+      scoreAll += item.score;
+      totalAll += item.total;
+      console.log("averageofAll", totalAll);
+    }
+  });
+  averageofAll = (scoreAll / totalAll) * 100;
+  return averageofAll.toFixed(1);
+}

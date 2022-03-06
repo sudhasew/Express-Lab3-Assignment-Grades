@@ -1,33 +1,38 @@
 export interface Grade {
-  Assignment: string;
-  Score: number;
-  Total: number;
-  Completed: boolean | string;
+  name: string;
+  completed: boolean | string;
+  total: number;
+  score: number;
+  id?: number;
 }
 
 export const assignments: Grade[] = [
   {
-    Assignment: "Walrus Worksheet",
-    Score: 9,
-    Total: 10,
-    Completed: true,
+    name: "Walrus Worksheet",
+    completed: "✔",
+    total: 10,
+    score: 9,
+    id: 1,
   },
   {
-    Assignment: "Jellyfish Project",
-    Score: 15,
-    Total: 15,
-    Completed: true,
+    name: "Jellyfish Project",
+    completed: "✔",
+    total: 15,
+    score: 15,
+    id: 2,
   },
   {
-    Assignment: "Dolphin Quiz",
-    Score: 8,
-    Total: 10,
-    Completed: true,
+    name: "Dolphin Quiz",
+    completed: "✔",
+    total: 10,
+    score: 8,
+    id: 3,
   },
   {
-    Assignment: "Oceans Unit Test",
-    Score: 0,
-    Total: 25,
-    Completed: false,
+    name: "Oceans Unit Test",
+    completed: "",
+    total: 25,
+    score: 0,
+    id: 4,
   },
 ];
