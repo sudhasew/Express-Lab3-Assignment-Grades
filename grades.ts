@@ -14,6 +14,7 @@ export const assignments: Grade[] = [
     score: 9,
     id: 1,
   },
+
   {
     name: "Jellyfish Project",
     completed: "✔",
@@ -21,6 +22,7 @@ export const assignments: Grade[] = [
     score: 15,
     id: 2,
   },
+
   {
     name: "Dolphin Quiz",
     completed: "✔",
@@ -28,6 +30,7 @@ export const assignments: Grade[] = [
     score: 8,
     id: 3,
   },
+
   {
     name: "Oceans Unit Test",
     completed: "",

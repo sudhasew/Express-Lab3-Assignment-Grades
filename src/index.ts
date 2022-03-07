@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static("images"));
 
 app.get("/", (req, res) => {
-  res.render("HomePage", { assignments });
+  res.render("HomePage", { assignments: assignments });
 });
 
 app.get("/Homepage", (req, res) => {
@@ -74,7 +74,10 @@ app.get("/seeAllAssignments", (req, res) => {
       item.completed = "";
     }
   });
-  res.render("HomePage", { assignments, averageofAll });
+  res.render("HomePage", {
+    assignments: assignments,
+    averageofAll,
+  });
 });
 
 app.get("/delete/:name", (req, res) => {
@@ -88,7 +91,17 @@ app.get("/delete/:name", (req, res) => {
   res.render("DeleteAssignment", { assignment: req.params.name });
 });
 
-app.listen(port, () => console.log(`Listening on port: ${port}.`));
+app.delete("/delete/:name", (req, res) => {
+  console.log("here", req.params.name);
+  const index = assignments.findIndex(
+    (assgn) => assgn.name === req.params.name
+  );
+  if (index === -1) {
+    return res.status(404).json({ error: "The assignment could not be found" });
+  }
+  assignments.splice(index, 1);
+  res.render("DeleteAssignment", { assignment: req.params.name });
+});
 
 function seeAllAverage() {
   var totalAll = 0;
@@ -104,3 +117,5 @@ function seeAllAverage() {
   averageofAll = (scoreAll / totalAll) * 100;
   return averageofAll.toFixed(1);
 }
+
+app.listen(port, () => console.log(`Listening on port: ${port}.`));

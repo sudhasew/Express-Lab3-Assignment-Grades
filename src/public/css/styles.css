@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Hubballi&family=Indie+Flower&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Smooch+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&family=Smooch+Sans&display=swap");
 body {
   font-family: "Hubballi", cursive;
   position: absolute;
@@ -15,6 +16,7 @@ body {
 
 .addAssgn {
   font-size: 1.8rem;
+  color: blue;
 }
 
 .assignmentDetails {
@@ -80,8 +82,19 @@ h2 {
   font-size: 1.8rem;
 }
 
+.percentage {
+  color: brown;
+  font-family: "Smooch Sans", sans-serif;
+  font-weight: 900;
+  letter-spacing: 2px;
+  padding: 0 7px;
+  border-radius: 20px;
+  background-color: rgb(202, 201, 201);
+}
+
 .seeAllAssignments {
   font-size: 1.7rem;
+  color: blue;
 }
 
 .seeAllAssgn {

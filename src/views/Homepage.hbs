@@ -28,14 +28,19 @@
                   <td style="text-align: center;">{{score}}</td>
                   <td style="text-align: center;">{{total}}</td>
                   <td style="text-align: center;">{{completed}}</td>
-                  <td><a href="/delete/{{name}}">Delete</a>{{delete}}</td>
+                  <td><a
+                      style="color: blue;"
+                      href="/delete/{{name}}"
+                    >Delete</a>{{delete}}</td>
                 </tr>
               </tbody>
             {{/each}}
           </table>
         </div>
       </div>
-      <h2 class="overAll">Overall Average: {{averageofAll}}% </h2>
+      <h2 class="overAll">Overall Average:
+        <span class="percentage">{{averageofAll}}%</span>
+      </h2>
       <div class="assAssignment">
         <a class="addAssgn" href="/addAssignment">Add an Assignment</a>
       </div>
